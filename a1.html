@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDCAT Merit Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="sm:flex sm:items-center sm:h-screen font-mono text-center text-xl">
+<div class="border border-black w-full sm:w-1/2 sm:m-auto rounded-2xl p-4">
+    <h1 class="w-full m-auto text-center text-yellow-300 text-3xl font-bold rounded-2xl bg-red-500 min-h-12 grid place-items-center">MDCAT Merit Calculator 2024</h1>
+    <label class="text-red-500 font-semibold" for="mdcat">MDCAT Score</label><br>
+    <input class="w-full text-center border border-black rounded-lg focus:bg-yellow-300" type="number" name="" id="mdcat" min="0" max="200" required placeholder="Enter your MDCAT Score"><br>
+    <label class="text-red-500 font-semibold" for="fsc">Intermediate Obtained Score</label><br>
+    <input class="w-full text-center border border-black rounded-lg focus:bg-yellow-300" type="number" name="" id="fsc" min="0" max="1200" required placeholder="Enter Intermediate Obtained Score"><br>
+    <label class="text-red-500 font-semibold" for="fsct">Intermediate Total Score</label><br>
+    <input class="w-full text-center border border-black rounded-lg focus:bg-yellow-300" type="number" name="" id="fsct" min="1100" max="1200" required placeholder="Enter Intermediate Total Score"><br>
+    <label class="text-red-500 font-semibold" for="mat">Matric Obtained Score</label><br>
+    <input class="w-full text-center border border-black rounded-lg focus:bg-yellow-300" type="number" name="" id="mat" min="0" max="1200" required placeholder="Enter Matric Obtained Score"><br>
+    <label class="text-red-500 font-semibold" for="matt">Matric Total Score</label><br>
+    <input class="w-full text-center border border-black rounded-lg focus:bg-yellow-300" type="number" name="" id="matt" min="1100" max="1200" required placeholder="Enter Matric Total Score"><br>
+    <button class="bg-yellow-300 border border-black font-bold rounded-lg text-red-500 p-1 m-2" id="butt">Check Aggregate</button><br>
+    <div class="grid text-yellow-300 p-1 bg-red-500 w-full m-auto place-items-center rounded-2xl">
+        <p id="p">Provide Your Scores to see your Aggregate</p>
+    </div>
+    <p class="text-sm">&copy;Copyright Reserved.</p>
+    <p class="text-sm">Designed by <span class="text-bold text-red-500 text-base">Muhammad Okasha</span></p>
+</div>
+
+    <script>
+        const mdcat= document.getElementById('mdcat');
+const fsco= document.getElementById('fsc');
+const fsct= document.getElementById('fsct');
+const mato= document.getElementById('mat');
+const matt= document.getElementById('matt');
+const butt= document.getElementById('butt');
+const p= document.getElementById('p');
+butt.onclick= function(){
+  let mdcatobt= mdcat.value;
+  let fscobt= fsco.value;
+  let fsctot= fsct.value;
+  let matobt= mato.value;
+  let mattot= matt.value;
+  let aggregate;
+  aggregate= ((mdcatobt/200)*50)+ ((fscobt/fsctot)*40)+((matobt/mattot)*10);
+  p.textContent= `Your MDCAT aggregate is ${aggregate}.`;
+}
+    </script>
+</body>
+</html>
